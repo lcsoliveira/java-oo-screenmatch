@@ -1,7 +1,9 @@
 // Esta classe Filme pertence a esse pacote
 package br.com.alura.screenmatch.modelos;
 
-public class Filme extends Titulo{
+import br.com.alura.screenmatch.calculos.Classificavel;
+
+public class Filme extends Titulo implements Classificavel {
 
     private String diretor;
 
@@ -11,5 +13,12 @@ public class Filme extends Titulo{
 
     public void setDiretor(String diretor) {
         this.diretor = diretor;
+    }
+
+    // Se eu estou implementando uma interface eu preciso implementar todos os métodos na minha classe
+    @Override
+    public int getClassificacao() {
+        // cast
+        return (int) pegaMedia() / 2;
     }
 }
