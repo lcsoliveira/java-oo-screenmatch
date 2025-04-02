@@ -4,7 +4,10 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PrincipalComLista {
     public static void main(String[] args) {
@@ -32,6 +35,24 @@ public class PrincipalComLista {
                 System.out.println("Classificação: " + filme.getClassificacao());
             }
         }
+
+        ArrayList<String> buscaPorArtista = new ArrayList<>();
+        buscaPorArtista.add("Adam Sandler");
+        buscaPorArtista.add("Paulo");
+        buscaPorArtista.add("Jaqueline");
+        System.out.println(buscaPorArtista);
+
+        Collections.sort(buscaPorArtista);
+
+        System.out.println("Depois da ordenação: " + buscaPorArtista);
+
+        Collections.sort(lista);
+        System.out.println("Lista de titulos ordenados: " + lista);
+
+        // A linha abaixo é uma modernidade do Java, atigamente era necessário criar uma classe e criar o método compare.
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+        System.out.println("Ordenando por Ano");
+        System.out.println(lista);
 
     }
 }
